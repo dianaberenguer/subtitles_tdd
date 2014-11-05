@@ -6,6 +6,7 @@ module SrtProcessor
 			@file = file
 			self.read
 			self.dialogs
+			self.set_attr
 		end
 
   	def read
@@ -17,8 +18,14 @@ module SrtProcessor
 		end
 
 		def set_attr
-			@dialogs[0].split("\r\n")
+			@dialog=@dialogs[0].split("\r\n")
+	  end
+
+	  def set_id
+			@dialog.gsub(" --> ", "\r\n")
+	  	@id=@dialog[0]
 	  end
 
 	end
 end
+

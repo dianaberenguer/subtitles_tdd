@@ -2,6 +2,12 @@ require "spec_helper"
 
 module SrtProcessor
 	describe Srt_file
+		# let(:subtitle) do
+		# 	[
+		# 	Srt_file.new("/vagrant/srt_processor/spec/support/TWD_subt.srt")
+		# 	]
+		# end
+
 	 	context "read subtitle file" do
 		 	it "checking we are reading the file" do
 		 		subtitle = Srt_file.new("/vagrant/srt_processor/spec/support/TWD_subt.srt")
@@ -17,5 +23,12 @@ module SrtProcessor
 				subtitle = Srt_file.new("/vagrant/srt_processor/spec/support/TWD_subt.srt")
 				expect(subtitle.set_attr).to eq(["1", "00:02:26,371 --> 00:02:36,570", "Sync by YYeTs.net", "www.addic7ed.com"])
 			end
+
+			it "Set first id" do
+				subtitle = Srt_file.new("/vagrant/srt_processor/spec/support/TWD_subt.srt")
+				expect(subtitle.set_id). to eq("1")
+			end
+
 		end
+
 end
